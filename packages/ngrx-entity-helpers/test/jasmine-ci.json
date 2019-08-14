@@ -1,0 +1,8 @@
+{
+  "reporters": [{
+    "name": "jasmine-reporters#JUnitXmlReporter",
+    "options": {
+      "filePrefix": "test-results"
+    }
+  }]
+}

@@ -1,0 +1,26 @@
+:host() {
+  padding: 20px;
+  display: block;
+  flex: 1 1 auto;
+
+  .model-container {
+    display: flex;
+    flex-flow: row wrap;
+
+    .model {
+      box-sizing: border-box;
+      flex: 1 1 100%;
+      max-width: 33%;
+      padding: 10px;
+    }
+
+    .title {
+      flex: 1 1 100%;
+    }
+
+    .model-name {
+      margin-left: 10px;
+      font-weight: normal;
+    }
+  }
+}

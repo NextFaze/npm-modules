@@ -1,0 +1,43 @@
+{
+  "name": "@nextfaze/core-tools",
+  "version": "2.0.1",
+  "description": "Useful framework-independant JavaScript tidbits",
+  "main": "bundles/core.umd.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf bundles coverage src/**/*.d.ts src/**/*.metadata.json src/**/*.js tests/**/*.d.ts tests/**/*.metadata.json tests/**/*.js index.d.ts index.metadata.json index.js",
+    "commit": "npm run prepublish && git-cz",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "preci-test": "npm run build",
+    "coverage": "nyc report --reporter=html",
+    "ci-test": "cross-env nyc mocha  --recursive --timeout 360000 --reporter mocha-junit-reporter \"dist/**/**.{spec,e2e}.js\"",
+    "test": "mocha dist/**/*.spec.js",
+    "build": "rm -rf dist && tsc -d && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextFaze/npm-modules"
+  },
+  "author": "NextFaze <npm-support@nextfaze.com>",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "@types/chai": "4.1.2",
+    "@types/mocha": "2.2.48",
+    "@types/node": "8.5.9",
+    "awesome-typescript-loader": "3.4.1",
+    "chai": "4.1.2",
+    "clean-webpack-plugin": "0.1.19",
+    "codelyzer": "4.4.2",
+    "copy-webpack-plugin": "4.3.1",
+    "cross-env": "5.1.3",
+    "mocha": "3.5.3",
+    "mocha-junit-reporter": "1.17.0",
+    "nyc": "11.4.1",
+    "tslint": "5.9.1",
+    "tslint-loader": "3.5.3",
+    "typescript": "3.1.1",
+    "webpack": "4.16.1"
+  }
+}

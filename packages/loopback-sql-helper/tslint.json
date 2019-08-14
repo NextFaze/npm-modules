@@ -1,0 +1,3 @@
+{
+  "extends": "../../common/angular-tslint.json"
+}

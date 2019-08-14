@@ -1,0 +1,30 @@
+{
+  "name": "@nextfaze/npm-modules",
+  "version": "0.0.1",
+  "description": "NextFaze Internal npm modules",
+  "main": "index.js",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "bootstrap:hoist": "lerna bootstrap --hoist",
+    "coverage": "lerna run coverage",
+    "pack:all": "lerna exec -- npm pack",
+    "ci-test": "lerna run ci-test",
+    "clean:all": "lerna exec -- rm -rf node_modules",
+    "publish-all": "lerna publish --yes",
+    "publish:dryrun": "lerna publish --skip-git --skip-npm",
+    "serve:angular": "lerna run start --scope=angular-example-app",
+    "test:build:angular": "lerna run build:aot:prod --scope=angular-example-app",
+    "test:check:angular": "lerna run check:output --scope=angular-example-app",
+    "test": "lerna run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextFaze/npm-modules"
+  },
+  "author": "NextFaze <npm-support@nextfaze.com>",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "codelyzer": "4.4.2",
+    "lerna": "3.6.0"
+  }
+}

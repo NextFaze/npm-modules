@@ -1,0 +1,59 @@
+####
+## Caleb also hates npm 5
+####
+.npmrc
+package-lock.json
+
+#################
+## Misc
+#################
+dist
+tmp
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+node_modules/*
+npm-debug.log
+*.js
+!config/*
+!prettier.config.js
+!karma.conf.js
+!gulpfile.js
+!webpack*.config.js
+*.map
+*.d.ts
+!make.js
+!examples/**/*.js
+coverage
+*.metadata.json
+bundles
+
+#################
+## JetBrains
+#################
+.idea
+.project
+.settings
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Mac crap
+.DS_Store
+
+Contact GitHub API Training Shop Blog About
+
+test-results.xml
+.nyc_output

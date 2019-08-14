@@ -1,0 +1,37 @@
+{
+  "name": "@nextfaze/loopback-sql-helper",
+  "version": "1.0.1",
+  "description": "For making work with Loopback Postgres Connector just _slightly_ less painful.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextFaze/npm-modules"
+  },
+  "keywords": [
+    "loopback",
+    "sql",
+    "postgresql",
+    "connector"
+  ],
+  "author": "NextFaze <npm-support@nextfaze.com>, Zak Barbuto <zbarbuto@nextfaze.com>",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "@types/bluebird": "3.5.20",
+    "@types/mocha": "2.2.48",
+    "@types/mustache": "0.8.30",
+    "@types/node": "8.5.9",
+    "typescript": "3.1.1"
+  },
+  "peerDependencies": {
+    "loopback": "^3.13.0",
+    "loopback-connector-postgresql": "^3.1.0"
+  }
+}

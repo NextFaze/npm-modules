@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "module": "es2015",
+    "types": [],
+    "paths": {
+      "@nextfaze/css-url-pipes": [
+        "../../css-url-pipes/src/index.ts"
+      ],
+      "@nextfaze/loopback-datatable": ["../../loopback-datatable/src/index.ts"],
+      "@nextfaze/loopback-query": ["../../loopback-query/src/index.ts"],
+      "@nextfaze/loopback-model-browser": [
+        "../../loopback-model-browser/src/index.ts"
+      ],
+      "@nextfaze/loopback-model-form": [
+        "../../loopback-model-form/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["test.ts", "**/*.spec.ts"]
+}

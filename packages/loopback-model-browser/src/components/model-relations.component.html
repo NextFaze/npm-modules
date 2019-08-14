@@ -1,0 +1,42 @@
+<lbmb-toolbar>Relations</lbmb-toolbar>
+<mat-accordion class="headers-align" displayMode="flat" [multi]=true>
+  <ng-container *ngFor="let relation of relations; trackBy: trackByName">
+    <mat-expansion-panel (opened)="opened[relation.name] = true" (closed)="opened[relation.name] = false">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ relation.name }}</mat-panel-title>
+        <mat-panel-description>{{ relation.relationType }}</mat-panel-description>
+        <mat-panel-description>
+          <pre>{{ relation.model || 'N/A' }}</pre>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-progress-bar [ngStyle]="{'visibility': loading ? 'visible' : 'hidden'}" mode="indeterminate"></mat-progress-bar>
+      <ng-container [ngSwitch]="relation.relationType">
+        <ng-container *ngSwitchCase="'hasMany'">
+          <ng-container *ngTemplateOutlet="tableData; context: { $implicit: relation }"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'hasOne'">
+          <ng-container *ngTemplateOutlet="tableData; context: { $implicit: relation }"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'belongsTo'">
+          <loopback-data-table *ngIf="opened[relation.name] && relation.modelApi" [model]="relation.modelApi">
+            <ng-container *cellRenderer="'id'; let row;">
+              <a mat-button [routerLink]="[relation.model, row.id] | root">{{ row.id }}</a>
+            </ng-container>
+          </loopback-data-table>
+        </ng-container>
+      </ng-container>
+
+    </mat-expansion-panel>
+  </ng-container>
+</mat-accordion>
+
+<ng-template #tableData let-relation>
+  <loopback-data-table *ngIf="opened[relation.name] && relation.modelApi" [model]="relation.modelApi" [paginator]="paginator">
+    <ng-container *cellRenderer="'id'; let row;">
+      <a mat-button [routerLink]="[relation.model, row.id] | root">{{ row.id }}</a>
+    </ng-container>
+  </loopback-data-table>
+  <mat-paginator #paginator [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+</ng-template>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="modelDefinition">
+    <div class="form" *ngIf="form">
+        <form [formGroup]="form">
+            <ng-container *ngFor="let property of modelProperties trackBy property?.name">
+                <loopback-input *ngIf="form.get(property?.name)" [property]="property" [formControlName]="property?.name"></loopback-input>
+            </ng-container>
+            <button mat-raised-button (click)="patchAttributes.emit(form.value)">Save</button>
+            <button mat-raised-button color="warn" (click)="deleteById.emit()">Delete</button>
+        </form>
+    </div>
+</ng-container>

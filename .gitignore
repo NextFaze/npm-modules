@@ -1,0 +1,46 @@
+#################
+## Global .gitignore
+## Add package specific ignores to /packages/[package-name]
+#################
+
+# Zak hates npm 5
+package-lock.json
+
+.vscode
+
+#################
+## Lerna
+#################
+/node_modules
+/lerna-debug.log
+/.npmrc
+packages/**/*.tgz
+
+#################
+## JetBrains
+#################
+.idea
+.project
+.settings
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Mac crap
+.DS_Store
+
+Contact GitHub API Training Shop Blog About
+
+test-results.xml
+.nyc_output

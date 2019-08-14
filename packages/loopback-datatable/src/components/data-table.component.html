@@ -1,0 +1,20 @@
+<div class="example-container mat-elevation-z2">
+  <mat-table matSort [loopbackDatatable]="model" [paginator]="paginator" [query]="query">
+    <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.key">
+      <ng-container [ngSwitch]="column.sortable">
+        <ng-container *ngSwitchCase="true">
+          <mat-header-cell mat-sort-header *cdkHeaderCellDef>{{ column.title }}</mat-header-cell>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <mat-header-cell *cdkHeaderCellDef>{{ column.title }}</mat-header-cell>
+        </ng-container>
+      </ng-container>
+      <mat-cell *cdkCellDef="let row">
+        <ng-container [cellPlaceholder]="column.key" [payload]="row"></ng-container>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

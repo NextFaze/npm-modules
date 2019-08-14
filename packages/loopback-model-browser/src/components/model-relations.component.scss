@@ -1,0 +1,13 @@
+:host {
+  // Align the relations accordion headers to be in line with each other
+  .headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    overflow-y: auto;
+  }
+  .headers-align .mat-expansion-panel-header-title,
+  .headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+}

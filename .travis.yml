@@ -1,0 +1,24 @@
+dist: trusty
+sudo: required
+
+language: node_js
+node_js:
+  - '8'
+
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+  - npm run clean:all
+  - npm run bootstrap:hoist
+
+test:
+  - npm run ci-test
+  - npm run coverage
+  - npm run test:build:angular
+  - npm run test:check:angular

@@ -1,0 +1,32 @@
+<div class="column">
+    <h4 *ngIf="modelDefinition?.relations">Information</h4>
+    <mat-list>
+        <mat-list-item>Name
+            <pre>{{ modelDefinition?.name }}</pre>
+        </mat-list-item>
+        <mat-list-item>Plural
+            <pre>{{ modelDefinition?.plural }}</pre>
+        </mat-list-item>
+        <mat-list-item>Path
+            <pre>{{ modelDefinition?.path }}</pre>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div class="column">
+    <h4 *ngIf="modelDefinition?.relations">Relations</h4>
+    <mat-list>
+        <mat-list-item *ngFor="let relation of getKeys(modelDefinition.relations)">
+            {{ relation }}
+            <pre>{{ modelDefinition?.relations[relation]?.type }}</pre>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div class="column">
+    <h4 *ngIf="modelDefinition?.relations">Properties</h4>
+    <mat-list>
+        <mat-list-item *ngFor="let property of getKeys(modelDefinition.properties)">
+            {{ property }}
+            <pre>{{ modelDefinition?.properties[property]?.type }}</pre>
+        </mat-list-item>
+    </mat-list>
+</div>

@@ -1,0 +1,24 @@
+<h1>Loopback Model Form Generator</h1>
+<p>Enter a properties model definition below. Some examples are</p>
+<div class="examples">
+  <div *ngFor="let example of examples" class="example">
+    <button mat-raised-button (click)="test(example)">Try Me</button>
+    <pre>{{example | json}}</pre>
+  </div>
+</div>
+<textarea rows="20" placeholder="Copy model definition here" [(ngModel)]="modelDefinition">
+</textarea>
+
+<button mat-raised-button (click)="select(modelDefinition)">Generate Form</button>
+<p class="error">{{ error }}</p>
+
+<ng-container *ngIf="properties && form">
+
+  <h2>Your Generated Form</h2>
+  <form [formGroup]="form">
+    <loopback-input *ngFor="let name of getControls(properties)" [property]="properties[name]" [formControlName]="properties[name]?.name"></loopback-input>
+    <button mat-raised-button (click)="submitted = form.value">Submit</button>
+  </form>
+  <pre *ngIf="submitted">{{ submitted | json }}</pre>
+
+</ng-container>

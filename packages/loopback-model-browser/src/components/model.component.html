@@ -1,0 +1,27 @@
+<!-- Toolbar -->
+<lbmb-toolbar>
+    <span>
+        <a mat-icon-button (click)="location.back()">
+            <mat-icon>keyboard_return</mat-icon>
+        </a>
+        <a mat-button [routerLink]="[] | root">Models</a> /
+        <a mat-button [routerLink]="[modelName] | root">{{ modelName }}</a> /
+        <a mat-button [routerLink]="[modelName, modelId] | root">{{ modelId }}</a>
+    </span>
+</lbmb-toolbar>
+
+<!-- The only subscription to the model$ -->
+<ng-container *ngIf="modelDefinition">
+    <ng-container *ngIf="modelInstance$ | async as modelInstance">
+
+        <lbmb-model-view [initialData]="modelInstance" [modelDefinition]="modelDefinition" (toggleRelation)="toggleRelation($event)"
+            (patchAttributes)="patchAttributes(modelId, $event)" (deleteById)="deleteById(modelId)">
+        </lbmb-model-view>
+
+        <p *ngIf="error" class="error">{{ error }}</p>
+
+        <lbmb-model-relations [modelDefinition]="modelDefinition" [modelInstance]="modelInstance">
+
+        </lbmb-model-relations>
+    </ng-container>
+</ng-container>

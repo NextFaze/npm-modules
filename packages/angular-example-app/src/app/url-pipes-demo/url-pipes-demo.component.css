@@ -1,0 +1,9 @@
+.css-pipe-demo {
+  width: 500px;
+  height: 500px;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

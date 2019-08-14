@@ -1,0 +1,53 @@
+<lbmb-toolbar>
+    <span>
+        <a mat-icon-button (click)="location.back()">
+            <mat-icon>keyboard_return</mat-icon>
+        </a>
+        <button mat-button [routerLink]="[] | root">Models</button> /
+        <button mat-button [routerLink]="[modelName] | root">{{ modelName }}</button>
+    </span>
+    <div>
+        <button mat-icon-button (click)="toggleDefinitionPanel()">
+            <mat-icon>help</mat-icon>
+        </button>
+        <a mat-icon-button [routerLink]="[modelName, '__new'] | root">
+            <mat-icon>add</mat-icon>
+        </a>
+</div>
+</lbmb-toolbar>
+
+<mat-expansion-panel #definitionPanel [expanded]="false">
+    <lbmb-model-definition [modelDefinition]="modelDefinition"></lbmb-model-definition>
+</mat-expansion-panel>
+
+<lbmb-toolbar>
+    <span>
+        Records
+    </span>
+    <button mat-icon-button (click)="toggleFilterPanel()">
+        <mat-icon>filter_list</mat-icon>
+    </button>
+</lbmb-toolbar>
+<mat-expansion-panel #filterPanel>
+    <ng-template [lbQuery]="dataModel" [lbQuerySelector]="selector" [lbQueryInput]="input" (lbQueryOutput)="update($event)">
+        <button color="primary" mat-raised-button>Search</button>
+    </ng-template>
+    <ng-template #input let-formControl="formControl" let-name="name">
+        <mat-form-field>
+            <input matInput [formControl]="formControl" [placeholder]="name">
+        </mat-form-field>
+    </ng-template>
+    <ng-template #selector let-types="types" let-formControl="formControl">
+        <mat-form-field>
+            <mat-select [formControl]="formControl">
+                <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </ng-template>
+</mat-expansion-panel>
+<loopback-data-table [model]="api" [paginator]="paginator" [query]="query">
+    <ng-container *cellRenderer="'id'; let row;">
+        <a mat-button [routerLink]="[modelName, row.id] | root">{{ row.id }}</a>
+    </ng-container>
+</loopback-data-table>
+<mat-paginator #paginator [pageSizeOptions]="[25, 50, 100]"></mat-paginator>

@@ -1,0 +1,60 @@
+{
+  "name": "ngrx-entity-helpers",
+  "version": "2.0.1",
+  "description": "Scaffolding classes for ngrx-entity ",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run tsc",
+    "coverage": "nyc jasmine-ts --config=test/jasmine-ci.json src/**/*.spec.ts",
+    "clean": "rm -rf dist",
+    "test": "jasmine-ts --config=test/jasmine-spec.json  src/**/*.spec.ts",
+    "ci-test": "jasmine-ts --config=test/jasmine-ci.json  src/**/*.spec.ts",
+    "tsc": "tsc"
+  },
+  "keywords": [
+    "ngrx",
+    "redux",
+    "reducers",
+    "actions"
+  ],
+  "author": "NextFaze <npm-support@nextfaze.com>, Michael Marner <mmarner@nextfaze.com>, Zak Barbuto <zbarbuto@nextfaze.com>",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "@angular/core": "^5.2.10",
+    "@ngrx/entity": "^5.2.0",
+    "@ngrx/store": "^5.2.0",
+    "@types/jasmine": "2.8.6",
+    "jasmine": "^3.1.0",
+    "jasmine-reporters": "^2.3.1",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.2.1",
+    "junit": "^1.4.9",
+    "nyc": "^11.7.1",
+    "rxjs": "^5.5.10",
+    "rxjs-compat": "6.2.2",
+    "typescript": "^2.8.3",
+    "zone.js": "^0.8.4"
+  },
+  "peerDependencies": {
+    "@ngrx/entity": "^5.2.0",
+    "@ngrx/store": "^5.2.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "junit"
+    ],
+    "all": true
+  },
+  "dependencies": {
+    "ts-node": "^6.0.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "../../common/angular-tsconfig-aot.json",
+  "compilerOptions": {
+    "rootDir": "./tmp/src-inlined",
+    "outDir": "dist"
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  },
+  "include": [
+    "tmp/src-inlined/**/*.ts"
+  ]
+}

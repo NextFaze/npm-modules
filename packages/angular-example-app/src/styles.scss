@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Not really needed since we're sing angular material but shows how to include
+// Material imports
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '~@angular/material/theming';
+html,
+body {
+  color: map-get($mat-dark-theme-foreground, base);
+  background-color: map-get($mat-dark-theme-background, background);
+  margin: 0;
+}
+
+.error {
+  color: red;
+}

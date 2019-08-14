@@ -1,0 +1,14 @@
+<mat-form-field>
+    <input matInput [(ngModel)]="text" placeholder="Filter...">
+</mat-form-field>
+<div *ngFor="let group of modelGroups" class="model-container">
+    <ng-container *ngIf="(filter(models[group?.title], text))?.length">
+        <h4 class="title">{{ group.title }}</h4>
+        <div class="model" *ngFor="let modelName of filter(models[group.title], text) | alphasort">
+            <a mat-button (click)="view(modelName)">
+                <mat-icon color="primary">{{ group.icon || 'folder' }}</mat-icon>
+                <span class="model-name">{{ modelName }}</span>
+            </a>
+        </div>
+    </ng-container>
+</div>

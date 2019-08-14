@@ -1,0 +1,22 @@
+<ng-template [lbQuery]="dataModel" [lbQuerySelector]="selector" [lbQueryInput]="input" (lbQueryOutput)="update($event)">
+  <button mat-raised-button>Submit</button>
+</ng-template>
+
+<ng-template #input let-formControl="formControl" let-name="name">
+  <mat-form-field>
+    <input matInput [formControl]="formControl" [placeholder]="name">
+  </mat-form-field>
+</ng-template>
+
+<ng-template #selector let-types="types" let-formControl="formControl">
+  <mat-form-field>
+    <mat-select [formControl]="formControl">
+      <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-template>
+
+<pre>{{ query | json }}</pre>
+
+<loopback-datatable [paginator]="paginator" [model]="orgInternal" [query]="query"></loopback-datatable>
+<mat-paginator #paginator></mat-paginator>

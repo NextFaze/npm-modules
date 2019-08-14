@@ -1,0 +1,6 @@
+<form [formGroup]="form" style="display:flex;flex-direction:column" (ngSubmit)="onSubmit.emit(form.value)">
+    <ng-container *ngFor="let property of properties">
+        <loopback-input style="width:100%" [formControlName]="property.name" [properties]="getProperties(property.name)" [component]="getComponent(property.name)"></loopback-input>
+    </ng-container>
+    <ng-content></ng-content>
+</form>

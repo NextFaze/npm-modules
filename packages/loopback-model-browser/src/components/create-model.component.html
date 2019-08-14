@@ -1,0 +1,22 @@
+<ng-container *ngIf="modelDefinition$ | async as modelDefinition">
+    <lbmb-toolbar>
+        <span>
+            <a mat-icon-button [routerLink]="[modelDefinition.name] | root">
+                <mat-icon>keyboard_return</mat-icon>
+            </a>
+            <button mat-button [routerLink]="[] | root">Models</button> /
+            <button mat-button [routerLink]="[modelDefinition.name] | root">{{ modelDefinition.name }}</button> /
+            <button mat-button>Create</button>
+        </span>
+    </lbmb-toolbar>
+
+    <div class="content">
+        <form [formGroup]="form" (ngSubmit)="create(modelDefinition.name, form.value)">
+            <loopback-input *ngFor="let property of getProperties(modelDefinition.properties)" [property]="property" [formControlName]="property?.name"></loopback-input>
+            <div>
+                <button mat-raised-button type="submit">Create</button>
+            </div>
+        </form>
+        <p class="error">{{ error }}</p>
+    </div>
+</ng-container>

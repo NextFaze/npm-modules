@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+  <h2>Custom cell renderers</h2>
+  <loopback-data-table [model]="orgInternal" [paginator]="paginator">
+    <!-- Custom renderers -->
+    <ng-container *cellRenderer="'id'; let row;">
+      {{row.id.toUpperCase()}}
+    </ng-container>
+
+    <ng-container *cellRenderer="'accountType'; let row;">
+      <ng-container [ngSwitch]="row.accountType">
+        <p *ngSwitchCase="'TRIAL'">
+          <s>%</s> Trial
+        </p>
+        <p *ngSwitchCase="'PAID'">$ Paid</p>
+      </ng-container>
+    </ng-container>
+
+  </loopback-data-table>
+
+  <h2>Querying data</h2>
+  <mat-radio-group [(ngModel)]="query">
+    <mat-radio-button [value]="{ where: { accountType: 'PAID' } }">Paid</mat-radio-button>
+    <mat-radio-button [value]="{ where: { accountType: 'TRIAL' } }">Trial</mat-radio-button>
+    <mat-radio-button [value]="null">All</mat-radio-button>
+  </mat-radio-group>
+  <loopback-data-table [displayedColumns]="columnsToDisplay" [model]="orgInternal" [query]="query">
+  </loopback-data-table>
+
+  <h2>Custom column config</h2>
+  <loopback-data-table [columnConfig]="columnConfig" [model]="orgInternal">
+  </loopback-data-table>
+
+  <h2>Limited column display</h2>
+  <loopback-data-table [displayedColumns]="columnsToDisplay" [model]="orgInternal">
+  </loopback-data-table>
+  <mat-paginator #paginator [pageSizeOptions]="[25, 50, 100]">
+  </mat-paginator>
+</div>
