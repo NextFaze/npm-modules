@@ -58,7 +58,7 @@ Lerna uses conventional commits to determine the package number. It will be a pa
 
 * `<message>` (a normal ommit message) will publish a patch version (0.0.x)
 * `feat: <message>` will publish a minor version (0.x.0)
-* `BREAKING CHANGE: <message>` will publish a major bersion (x.0.0)
+* `BREAKING CHANGE` at the beginning of the optional body or footer section will publish a major bersion (x.0.0)
 
 Please be aware that ther may be many client projects that use your module so pay close attention to what is a fix, a feature and a breaking change.
 
