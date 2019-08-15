@@ -17,8 +17,8 @@ export class LoopbackDatatableDirective {
     this.updateQuery();
     this.updatePageCount();
   }
-  @ContentChild(MatTable) table: any;
-  @ContentChild(MatSort) sort: MatSort;
+  @ContentChild(MatTable, { static: true }) table: any;
+  @ContentChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(@Host() public host: MatTable<any>) {}
 

@@ -22,7 +22,7 @@ export interface AbstractModelApi {
   [key: string]: any;
 }
 
-export class LoopbackDatasource extends DataSource<any> {
+export class LoopbackDatasource implements DataSource<any> {
   private _page = 0;
   private _pageSize = 25;
   public get page() {
@@ -46,9 +46,7 @@ export class LoopbackDatasource extends DataSource<any> {
     private api: AbstractModelApi, // a Loopback Model API
     private paginator?: MatPaginator,
     private sort?: MatSort,
-  ) {
-    super();
-  }
+  ) {}
 
   connect(): any {
     return merge(...this.constructObservables().filter(Boolean)).pipe(

@@ -20,9 +20,9 @@ export class ModelsComponent implements OnInit {
   dataModel: any;
   api: any;
   viewModelDefinition: boolean;
-  @ViewChild('filterPanel')
+  @ViewChild('filterPanel', { static: true })
   filterPanel: MatExpansionPanel;
-  @ViewChild('definitionPanel')
+  @ViewChild('definitionPanel', { static: true })
   definitionPanel: MatExpansionPanel;
   constructor(
     public modelsApi: ModelApiService,

@@ -93,16 +93,12 @@ export class RemoteEntityReducer<T> {
         return { ...state, loadingAll: false, error: action.payload };
       case actions.SUCCESS_UPDATE_ONE:
       case actions.SUCCESS_RETRIEVE_ONE:
-        return this.adapter.upsertOne(
-          { id: action.payload.id, changes: action.payload },
-          {
-            ...state,
-            loadingIds: { ...state.loadingIds, [action.payload.id]: false }
-          }
-        );
+        return this.adapter.upsertOne(action.payload, {
+          ...state,
+          loadingIds: { ...state.loadingIds, [action.payload.id]: false }
+        });
       case actions.SUCCESS_RETRIEVE_ALL:
-        const updates = action.payload.map(entity => ({ id: entity.id, changes: entity }));
-        return this.adapter.upsertMany(updates, {
+        return this.adapter.upsertMany(action.payload, {
           ...state,
           loadingAll: false
         });
@@ -145,7 +141,10 @@ export class RemoteEntityReducer<T> {
         };
       }
       case actions.SUCCESS_UPDATE_MANY: {
-        const updates = action.payload.map(entity => ({ id: entity.id, changes: entity }));
+        const updates = action.payload.map(entity => ({
+          id: entity.id,
+          changes: entity
+        }));
         const loadingIds = action.payload.reduce((map, element) => {
           map[element.id] = false;
           return map;

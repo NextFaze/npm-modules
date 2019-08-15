@@ -25,7 +25,7 @@ import { ControlRendererComponent, Property } from '../types';
 })
 export class InputComponent implements ControlValueAccessor {
   // Placeholder where the input will be created at
-  @ViewChild('placeholder', { read: ViewContainerRef })
+  @ViewChild('placeholder', { read: ViewContainerRef, static: true })
   placeholder: ViewContainerRef;
 
   @Input('formControlName') formControlName: string;

@@ -8,15 +8,19 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "typeRoots": ["node_modules/@types"],
-    "baseUrl": "./src",
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "baseUrl": "..",
     "paths": {
-      "@nextfaze/loopback-datatable": ["../loopback-datatable/src/index.ts"],
+      "@nextfaze/loopback-datatable": ["loopback-datatable/src/index.ts"],
+      "@nextfaze/loopback-query": ["loopback-query/src/index.ts"],
       "@nextfaze/loopback-model-browser": [
-        "../loopback-model-browser/src/index.ts"
+        "loopback-model-browser/src/index.ts"
       ],
-      "@nextfaze/loopback-model-form": ["../loopback-model-form/src/index.ts"]
+      "@nextfaze/loopback-model-form": ["loopback-model-form/src/index.ts"],
+      "@nextfaze/css-url-pipes": ["css-url-pipes/src/index.ts"]
     },
     "lib": ["es2017", "dom"]
-  }
+  },
 }
