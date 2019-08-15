@@ -20,24 +20,23 @@
   "author": "NextFaze <npm-support@nextfaze.com>, Michael Marner <mmarner@nextfaze.com>, Zak Barbuto <zbarbuto@nextfaze.com>",
   "license": "LGPL-3.0",
   "devDependencies": {
-    "@angular/core": "^5.2.10",
-    "@ngrx/entity": "^5.2.0",
-    "@ngrx/store": "^5.2.0",
-    "@types/jasmine": "2.8.6",
-    "jasmine": "^3.1.0",
-    "jasmine-reporters": "^2.3.1",
-    "jasmine-spec-reporter": "^4.2.1",
-    "jasmine-ts": "^0.2.1",
-    "junit": "^1.4.9",
-    "nyc": "^11.7.1",
-    "rxjs": "^5.5.10",
-    "rxjs-compat": "6.2.2",
-    "typescript": "^2.8.3",
-    "zone.js": "^0.8.4"
+    "@angular/core": "8.2.2",
+    "@ngrx/entity": "8.2.0",
+    "@ngrx/store": "8.2.0",
+    "@types/jasmine": "3.4.0",
+    "jasmine": "3.1.0",
+    "jasmine-reporters": "2.3.1",
+    "jasmine-spec-reporter": "4.2.1",
+    "jasmine-ts": "0.2.1",
+    "junit": "1.4.9",
+    "nyc": "11.7.1",
+    "rxjs": "6.5.2",
+    "typescript": "3.5.3",
+    "zone.js": "0.10.2"
   },
   "peerDependencies": {
-    "@ngrx/entity": "^5.2.0",
-    "@ngrx/store": "^5.2.0"
+    "@ngrx/entity": "8.2.0",
+    "@ngrx/store": "8.2.0"
   },
   "nyc": {
     "extension": [
@@ -55,6 +54,6 @@
     "all": true
   },
   "dependencies": {
-    "ts-node": "^6.0.3"
+    "ts-node": "^7.0.0"
   }
 }

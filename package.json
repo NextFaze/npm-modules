@@ -24,7 +24,7 @@
   "author": "NextFaze <npm-support@nextfaze.com>",
   "license": "LGPL-3.0",
   "devDependencies": {
-    "codelyzer": "4.4.2",
+    "codelyzer": "5.1.0",
     "lerna": "3.6.0"
   }
 }

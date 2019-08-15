@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@angular/core';
-import { production } from 'environments/environment';
 
 @Injectable()
 export class ApplicationService {
